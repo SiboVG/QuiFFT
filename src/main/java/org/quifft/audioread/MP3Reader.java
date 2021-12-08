@@ -1,7 +1,7 @@
 package org.quifft.audioread;
 
-import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioFileFormat;
-import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioSystem;
 import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 
 import java.io.File;
@@ -25,7 +25,14 @@ public class MP3Reader extends AudioReader {
      */
     public MP3Reader(File audio) throws IOException, UnsupportedAudioFileException {
         this.audio = audio;
-        audioFileFormat = AudioSystem.getAudioFileFormat(audio);
+        try {
+            audioFileFormat = AudioSystem.getAudioFileFormat(audio);
+        } catch (IOException e) {
+            throw new IOException(e);
+        } catch (Exception e) {
+            throw new UnsupportedAudioFileException(e.getMessage());
+        }
+
         getInputStream();
     }
 

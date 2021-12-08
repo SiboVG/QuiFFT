@@ -1,8 +1,8 @@
 package org.quifft.audioread;
 
-import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioFormat;
-import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioInputStream;
-import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 import org.quifft.output.FFTStream;
 import org.quifft.params.FFTParameters;
@@ -57,16 +57,22 @@ public abstract class AudioReader implements Iterator<int[]> {
      * @throws UnsupportedAudioFileException if the file is not a valid audio file or has bit depth greater than 16
      */
     void getInputStreamAs8Bit() throws IOException, UnsupportedAudioFileException {
-        AudioInputStream in = AudioSystem.getAudioInputStream(audio);
-        AudioFormat baseFormat = in.getFormat();
-        AudioFormat decodedFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED,
-                baseFormat.getSampleRate(),
-                16,
-                baseFormat.getChannels(),
-                baseFormat.getChannels() * 2,
-                baseFormat.getSampleRate(),
-                false);
-        this.inputStream = AudioSystem.getAudioInputStream(decodedFormat, in);
+        try {
+            AudioInputStream in = AudioSystem.getAudioInputStream(audio);
+            AudioFormat baseFormat = in.getFormat();
+            AudioFormat decodedFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED,
+                    baseFormat.getSampleRate(),
+                    16,
+                    baseFormat.getChannels(),
+                    baseFormat.getChannels() * 2,
+                    baseFormat.getSampleRate(),
+                    false);
+            this.inputStream = AudioSystem.getAudioInputStream(decodedFormat, in);
+        } catch (IOException e) {
+            throw new IOException(e);
+        } catch (Exception e) {
+            throw new UnsupportedAudioFileException(e.getMessage());
+        }
     }
 
     /**

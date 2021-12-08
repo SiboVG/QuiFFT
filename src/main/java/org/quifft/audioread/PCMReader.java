@@ -1,9 +1,9 @@
 package org.quifft.audioread;
 
-import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioSystem;
-import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioFormat;
 import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioFormat;
 import java.io.File;
 import java.io.IOException;
 
@@ -33,7 +33,13 @@ public class PCMReader extends AudioReader {
     }
 
     private void getInputStream() throws IOException, UnsupportedAudioFileException {
-        inputStream = AudioSystem.getAudioInputStream(audio);
+        try {
+            inputStream = AudioSystem.getAudioInputStream(audio);
+        } catch (IOException e) {
+            throw new IOException(e);
+        } catch (Exception e) {
+            throw new UnsupportedAudioFileException(e.getMessage());
+        }
 
         // convert 8-bit audio into 16-bit
         if(inputStream.getFormat().getSampleSizeInBits() == 8) {

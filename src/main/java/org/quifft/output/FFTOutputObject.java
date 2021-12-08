@@ -3,7 +3,7 @@ package org.quifft.output;
 import org.quifft.audioread.AudioReader;
 import org.quifft.params.FFTParameters;
 
-import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioFormat;
 import java.text.DecimalFormat;
 
 /**
