@@ -7,7 +7,7 @@ import org.quifft.audioread.AudioReaderFactory;
 import org.quifft.params.WindowFunction;
 import org.quifft.sampling.SampleWindowExtractor;
 
-import javax.sound.sampled.UnsupportedAudioFileException;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;

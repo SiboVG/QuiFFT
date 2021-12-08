@@ -12,7 +12,7 @@ import org.quifft.params.WindowFunction;
 
 import static org.junit.Assert.*;
 
-import javax.sound.sampled.UnsupportedAudioFileException;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
 

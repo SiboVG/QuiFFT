@@ -8,7 +8,7 @@ import org.quifft.output.FFTStream;
 import org.quifft.params.FFTParameters;
 import org.quifft.params.WindowFunction;
 
-import javax.sound.sampled.UnsupportedAudioFileException;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
 import java.util.NoSuchElementException;

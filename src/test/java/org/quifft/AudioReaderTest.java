@@ -1,11 +1,11 @@
 package org.quifft;
 
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 import org.junit.Test;
 import org.quifft.audioread.AudioReader;
 import org.quifft.audioread.AudioReaderFactory;
 import org.quifft.audioread.PCMReader;
 
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
 

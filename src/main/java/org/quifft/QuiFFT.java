@@ -1,5 +1,6 @@
 package org.quifft;
 
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 import org.quifft.audioread.AudioReader;
 import org.quifft.audioread.AudioReaderFactory;
 import org.quifft.fft.FFTComputationWrapper;
@@ -9,7 +10,6 @@ import org.quifft.params.ParameterValidator;
 import org.quifft.params.WindowFunction;
 import org.quifft.sampling.SampleWindowExtractor;
 
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
 

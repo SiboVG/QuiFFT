@@ -1,6 +1,9 @@
 package org.quifft.audioread;
 
-import javax.sound.sampled.*;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioFileFormat;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioSystem;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;

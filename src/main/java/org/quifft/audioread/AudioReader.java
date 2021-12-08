@@ -1,12 +1,13 @@
 package org.quifft.audioread;
 
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioFormat;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioInputStream;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.AudioSystem;
+import mg.dida.javax.sound.share.classes.javax.sound.sampled.UnsupportedAudioFileException;
 import org.quifft.output.FFTStream;
 import org.quifft.params.FFTParameters;
 
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.UnsupportedAudioFileException;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
